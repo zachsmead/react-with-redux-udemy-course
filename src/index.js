@@ -2,7 +2,9 @@ import React, { Component } from 'react'; // we didn't write this so don't have 
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar'; // we wrote this so we have to make a path reference to import
-import VideoList from './components/video_list'
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
+
 const API_KEY = 'AIzaSyC21wbRLnZWiouqP10wgS8x6etgKzYJuXc';
 
 
@@ -26,6 +28,7 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar />
+				<VideoDetail video={this.state.videos[0]} />
 				<VideoList videos={this.state.videos} />
 			</div>
 				// this is called passing a prop
