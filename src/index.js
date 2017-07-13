@@ -15,11 +15,17 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { videos: [] };
+		this.state = {
+			videos: [],
+			selectedVideo: null
+		};
 
 		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
 			// this.setState({ videos: videos }); is the same as
-			this.setState({ videos });
+			this.setState({ 
+				videos: videos,
+				selectedVideo: videos[0]
+			});
 		});
 	}
 
@@ -28,8 +34,16 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar />
-				<VideoDetail video={this.state.videos[0]} />
-				<VideoList videos={this.state.videos} />
+				<VideoDetail video={this.state.selectedVideo} />
+				<VideoList
+					onVideoSelect={selectedVideo => this.setState({selectedVideo})} // onVideoSelect calls a function that
+																																					// passes the selected video as input
+																																					// and then sets the state to that video
+																																					// the function onVideoSelect is passed
+																																					// as a parameter of props, to the
+																																					// VideoList component.
+					videos={this.state.videos}
+				/>
 			</div>
 				// this is called passing a prop
 		);
