@@ -20,7 +20,12 @@ class App extends Component {
 			selectedVideo: null
 		};
 
-		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+		this.videoSearch('surfboards');
+
+	}
+
+	videoSearch(term) {
+		YTSearch({key: API_KEY, term: term}, (videos) => {
 			// this.setState({ videos: videos }); is the same as
 			this.setState({ 
 				videos: videos,
@@ -33,15 +38,15 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<SearchBar />
+				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList
-					onVideoSelect={selectedVideo => this.setState({selectedVideo})} // onVideoSelect calls a function that
+					onVideoSelect={selectedVideo => this.setState({selectedVideo})} // calling onVideoSelect runs a function that
 																																					// passes the selected video as input
-																																					// and then sets the state to that video
-																																					// the function onVideoSelect is passed
-																																					// as a parameter of props, to the
-																																					// VideoList component.
+																																					// and then sets the state in index.js to 
+																																					// that video. the function onVideoSelect 
+																																					// is passed as a parameter of props, 
+																																					// denoted by {}, to the VideoList component.
 					videos={this.state.videos}
 				/>
 			</div>
