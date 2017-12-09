@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react'; // we didn't write this so don't have to make a path reference- it's a library
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -20,7 +21,7 @@ class App extends Component {
 			selectedVideo: null
 		};
 
-		this.videoSearch('surfboards');
+		this.videoSearch('surfboards'); // when the App component renders, it will automatically conduct a YT search
 
 	}
 
@@ -41,13 +42,19 @@ class App extends Component {
 				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList
-					onVideoSelect={selectedVideo => this.setState({selectedVideo})} // calling onVideoSelect runs a function that
-																																					// passes the selected video as input
-																																					// and then sets the state in index.js to 
-																																					// that video. the function onVideoSelect 
-																																					// is passed as a parameter of props, 
-																																					// denoted by {}, to the VideoList component.
-					videos={this.state.videos}
+					onVideoSelect={selectedVideo => this.setState({selectedVideo})} // ** calling onVideoSelect runs a function
+																																					// that takes the video that was clicked as its
+																																					// input, and sets the state's selectedVideo in  
+																																					// index.js as that video. the function 
+																																					// onVideoSelect is passed as a parameter of  
+																																					// props, denoted by {}, to the VideoList 
+																																					// component.
+
+					videos={this.state.videos} // the component VideoList needs access to the list of videos in App's state,
+																		 // and to make the videos available we pass VideoList an object 'videos' which
+																		 // is equal to the contents of 'this.state.videos'. this is called 'passing
+																		 // props' in React. We are passing data to the child components from the most
+																		 // parent component, i.e. App in index.js.
 				/>
 			</div>
 				// this is called passing a prop
