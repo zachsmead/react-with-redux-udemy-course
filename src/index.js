@@ -59,7 +59,7 @@ class App extends Component {
 																																					// in App and index.js, but gets its actual
 																																					// input from VideoListItem. That's
 																																					// why we have to pass it thru components as 
-																																					// a prop
+																																					// a prop.
 
 					videos={this.state.videos} // the component VideoList needs access to the list of videos in App's state,
 																		 // and to make the videos available we pass VideoList an object 'videos' which
