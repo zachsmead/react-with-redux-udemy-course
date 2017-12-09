@@ -1,12 +1,14 @@
 import React from 'react';
 
-// const VideoListItem = (props) => {
-// const video = props.video; is identical to
-const VideoListItem = ({video, onVideoSelect}) => { // this line
+
+const VideoListItem = ({video, onVideoSelect}) => { // this line is identical to saying:
+	// const VideoListItem = (props) => {
+		// const video = props.video;
+		// const onVideoSelect = props.onVideoSelect
 	console.log(video)
 	const imageUrl = video.snippet.thumbnails.default.url;
 
-	// ** clicking on this component triggers the function 'onVideoSelect'.
+	// ** clicking on this component triggers the function 'onVideoSelect' and passes the video as input.
 	return (
 		<li onClick={() => onVideoSelect(video)} className='list-group-item'>
 			<div className='video-list media'>

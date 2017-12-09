@@ -49,6 +49,17 @@ class App extends Component {
 																																					// onVideoSelect is passed as a parameter of  
 																																					// props, denoted by {}, to the VideoList 
 																																					// component.
+																																					// ** the function itself is passed down
+																																					// to each child component until reaching
+																																					// VideoListItem. VideoListItem then calls
+																																					// the function and causes App's state
+																																					// to update, which makes App re-render
+																																					// itself.
+																																					// in other words the function is defined
+																																					// in App and index.js, but gets its actual
+																																					// input from VideoListItem. That's
+																																					// why we have to pass it thru components as 
+																																					// a prop
 
 					videos={this.state.videos} // the component VideoList needs access to the list of videos in App's state,
 																		 // and to make the videos available we pass VideoList an object 'videos' which
@@ -57,7 +68,6 @@ class App extends Component {
 																		 // parent component, i.e. App in index.js.
 				/>
 			</div>
-				// this is called passing a prop
 		);
 	}
 }

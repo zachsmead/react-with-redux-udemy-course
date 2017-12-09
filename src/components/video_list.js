@@ -15,9 +15,9 @@ const VideoList = (props) => {
 			// ** Component VideoList contains VideoListItem, which has an onClick property that triggers 'onVideoSelect'.
 			<VideoListItem
 				onVideoSelect = {props.onVideoSelect} // ** in index.js, we gave VideoList access to index's props and
-																							// ** onVideoSelect was passed here as a parameter of props.
+																							// ** passed onVideoSelect as a parameter of props.
 																							// ** Now we are giving VideoListItem access to VideoList's props
-																							// ** and passing onVideoSelect as props.onVideoSelect
+																							// ** and passing onVideoSelect once more, as props.onVideoSelect.
 				key={video.etag}
 				video={video}
 			/>
