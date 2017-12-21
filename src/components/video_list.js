@@ -18,13 +18,13 @@ const VideoList = (props) => {
 																							// ** passed onVideoSelect as a parameter of props.
 																							// ** Now we are giving VideoListItem access to VideoList's props
 																							// ** and passing onVideoSelect once more, as props.onVideoSelect.
-				key={video.etag}
+				key={video.etag} // this line adds a unique id to each video so react knows what to update specifically.
 				video={video}
 			/>
 		);
 	})
 
-	return ( // react is going to recognize that videoItems is an array and will try to render each item
+	return ( // react is going to recognize that videoItems is an array and will try to render each item.
 		<ul className="col-md-4 list-group">
 			{videoItems}
 		</ul>
