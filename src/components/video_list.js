@@ -10,7 +10,7 @@ import VideoListItem from './video_list_item';
 // However, in a functional component (const Foo, like below), the props object is an argument.
 
 const VideoList = (props) => {
-	const videoItems = props.videos.map((video) => {
+	const videoItems = props.videos.map((video) => { // videoItems is actually an array of components.
 		return (
 			// ** Component VideoList contains VideoListItem, which has an onClick property that triggers 'onVideoSelect'.
 			<VideoListItem
@@ -24,7 +24,7 @@ const VideoList = (props) => {
 		);
 	})
 
-	return (
+	return ( // react is going to recognize that videoItems is an array and will try to render each item
 		<ul className="col-md-4 list-group">
 			{videoItems}
 		</ul>
