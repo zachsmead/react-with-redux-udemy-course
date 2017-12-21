@@ -1,6 +1,6 @@
 import React from 'react';
 
-// {video} pulls props[video]
+// remember the es6 shortcut we used in video_list_item - {video} pulls props[video]
 const VideoDetail = ({video}) => { 
 	
 	if (!video) {

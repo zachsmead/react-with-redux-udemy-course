@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const VideoListItem = ({video, onVideoSelect}) => { // this line is identical to saying:
+const VideoListItem = ({video, onVideoSelect}) => { // this line is an es6 shortcut identical to saying:
 	// const VideoListItem = (props) => {
 		// const video = props.video;
 		// const onVideoSelect = props.onVideoSelect
